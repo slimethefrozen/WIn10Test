@@ -200,6 +200,13 @@ namespace Win10Test
         private void CheckBoxItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Debug.WriteLine("Checkbox changed");
+
+            CheckBox cb = sender as CheckBox;
+            StackPanel sp = cb.Parent as StackPanel;
+            ListBox lb = sp.Parent as ListBox;  //returns a null??
+
+            int index = watchList.Items.IndexOf(sp);
+            Debug.WriteLine("Index of row: " + index);
         }
     }
 }
